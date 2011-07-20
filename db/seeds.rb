@@ -51,16 +51,16 @@ end
 # Import project_milestones
 projects = Project.all
 projects_count = projects.count
-milestones = Milestones.all
-milestone_count = milestones.count
+milestones = Milestone.all
+milestones_count = milestones.count
 (1..10).each do |num|
   rnd_project = projects[rand(projects_count)]
-  rnd_milestone = projects[rand(milestones_count)]
+  rnd_milestone = milestones[rand(milestones_count)]
   p = ProjectMilestone.new
   p.project_id = rnd_project.id
   p.milestone_id = rnd_milestone.id
   p.description = "milestone description #{num}"
-  p.date => Date.today - rand(20)
+  p.date = Date.today - rand(20)
   p.accomplished = [true,false].shuffle.shift
   p.save!
 end

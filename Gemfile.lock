@@ -213,6 +213,7 @@ DEPENDENCIES
   meta_search
   mysql
   rails (= 3.0.6)
+  rake (= 0.8.7)
   rcov
   rspec-rails
   ruby-debug

@@ -36,3 +36,13 @@ project_states_count = ProjectState.all.count
     end
   end
 end
+
+
+# Import milestones
+milestones = ["presales", "sales", "question submission", "offer submission", "offer presentation", "debriefing", "kickoff", "release", "production start", "final project report", "project review", "project end" ]
+
+milestones.each do |milestone|
+  p = Milestone.new
+  p.name = milestone
+  p.save!
+end

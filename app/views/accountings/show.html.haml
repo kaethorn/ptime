@@ -1,0 +1,31 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @accounting.description
+
+%p
+  %b Amount:
+  = @accounting.amount
+
+%p
+  %b Valuta:
+  = @accounting.valuta
+
+%p
+  %b Project:
+  = @accounting.project.shortname
+
+%p
+  %b Sent:
+  = @accounting.sent
+
+%p
+  %b Payed:
+  = @accounting.payed
+
+%p
+  %b Link:
+  = @accounting.link
+
+= "#{link_to 'Edit', edit_accounting_path(@accounting) %>} | #{link_to 'Back', accountings_path}"

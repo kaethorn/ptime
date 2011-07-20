@@ -1,0 +1,24 @@
+%h1 Listing project milestones
+
+%table
+  %tr
+    %th Milestone
+    %th Description
+    %th Date
+    %th Accomplished
+    %th
+    %th
+  </tr>
+
+  - @project_milestones.each do |project_milestone|
+    %tr
+      %td= project_milestone.milestone.name
+      %td= project_milestone.description
+      %td= project_milestone.date
+      %td= project_milestone.accomplished
+      %td= link_to 'Edit', edit_project_milestone_path(project_milestone)
+      %td= link_to 'Destroy', project_milestone, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Project milestone', new_project_milestone_path

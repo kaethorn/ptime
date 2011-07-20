@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :entries
+  has_many :plans
 
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
          :validatable

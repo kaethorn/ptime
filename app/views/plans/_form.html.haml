@@ -1,0 +1,27 @@
+= form_for(@plan) do |f|
+   if @plan.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@plan.errors.count, "error")} prohibited this plan from being saved:"
+
+      %ul
+      - @plan.errors.full_messages.each do |msg|
+        %li= msg
+
+  .field
+    = f.label :user_id
+    %br
+    = f.select :user_id, options_from_collection_for_select(@users, 'id', 'user_name'), :prompt => 'Select a user'
+  .field
+    = f.label :project_id
+    %br
+    = f.select :project_id, options_from_collection_for_select(@projects, 'id', 'shortname'), :prompt => 'Select a project'
+  .field
+    = f.label :amount
+    %br
+    = f.text_field :amount
+  .field
+    = f.label :kw
+    %br
+    = f.datetime_select :kw
+  .actions
+    = f.submit

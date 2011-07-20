@@ -1,0 +1,10 @@
+= semantic_form_for(@project_milestone) do |f|
+  %h3 Project Milestone
+  = f.inputs do
+    = f.input :project_id, :as => :select, :collection => @projects, :label_method => :shortname
+    = f.input :milestone_id, :as => :select, :collection => @milestones
+    = f.input :description
+    = f.input :date, :as => :datepicker
+    = f.input :accomplished
+  = f.buttons do
+    = f.commit_button :button_html => { :class => 'main_link' }

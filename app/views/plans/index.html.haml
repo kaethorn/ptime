@@ -1,0 +1,24 @@
+%h1 Listing plans
+
+%table
+  %tr
+    %th User
+    %th Project
+    %th Amount
+    %th Kw
+    %th
+    %th
+    %th
+
+  - @plans.each do |plan|
+    %tr
+      %td= plan.user.user_name
+      %td= plan.project.shortname
+      %td= plan.amount
+      %td= plan.kw
+      %td= link_to 'Show', plan
+      %td= link_to 'Edit', edit_plan_path(plan)
+      %td= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete
+%br
+
+= link_to 'New Plan', new_plan_path

@@ -1,0 +1,37 @@
+= form_for(@accounting) do |f|
+  - if @accounting.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@accounting.errors.count, "error")} prohibited this accounting from being saved:"
+      %ul
+      - @accounting.errors.full_messages.each do |msg|
+        %li= msg
+  .field
+    = f.label :description
+    %br
+    = f.text_field :description
+  .field
+    = f.label :amount
+    %br
+    = f.text_field :amount
+  .field
+    = f.label :valuta
+    %br
+    = f.datetime_select :valuta
+  .field
+    = f.label :project_id
+    %br
+    = f.select :project_id, options_from_collection_for_select(@projects, 'id', 'shortname'), :prompt => 'Select a project'
+  .field
+    = f.label :sent
+    %br
+    = f.check_box :sent
+  .field
+    = f.label :payed
+    %br
+    = f.check_box :payed
+  .field
+    = f.label :link
+    %br
+    = f.text_field :link
+  .actions
+    = f.submit

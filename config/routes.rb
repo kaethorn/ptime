@@ -1,5 +1,13 @@
 PanterControlling::Application.routes.draw do
 
+  resources :plans
+
+  resources :project_milestones, :only => [:new, :create, :index, :edit, :destroy]
+
+  resources :milestones, :only => [:new, :create, :index, :edit, :destroy]
+
+  resources :accountings
+
   match '/admin' => "admin#index"
 
   resource :report

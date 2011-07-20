@@ -1,13 +1,13 @@
-%h1 Listing milestones
+%h1 Milestone types
 
-%table
+%table#gradient-table
   %tr
-    %th Name
-    %th
-    %th
+    %th=sortable "name"
+    %th Edit
+    %th Delete
 
   - @milestones.each do |milestone|
     %tr
       %td= milestone.name
-      %td= link_to 'Edit', edit_milestone_path(milestone)
-      %td= link_to 'Destroy', milestone, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to (image_tag 'edit.png'), edit_milestone_path(milestone)
+      %td= link_to (image_tag 'delete.png'), milestone, :confirm => 'Are you sure?', :method => :delete

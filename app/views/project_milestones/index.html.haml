@@ -1,24 +1,22 @@
-%h1 Listing project milestones
+%h1 Milestones
 
-%table
+%table#gradient-table
   %tr
+    %th Project
     %th Milestone
     %th Description
     %th Date
     %th Accomplished
-    %th
-    %th
+    %th Edit
+    %th Delete
   </tr>
 
   - @project_milestones.each do |project_milestone|
     %tr
+      %td= link_to project_milestone.project.shortname, edit_project_path(project_milestone.project)
       %td= project_milestone.milestone.name
       %td= project_milestone.description
       %td= project_milestone.date
       %td= project_milestone.accomplished
-      %td= link_to 'Edit', edit_project_milestone_path(project_milestone)
-      %td= link_to 'Destroy', project_milestone, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Project milestone', new_project_milestone_path
+      %td= link_to (image_tag 'edit.png'), edit_project_milestone_path(project_milestone)
+      %td= link_to (image_tag 'delete.png'), project_milestone, :confirm => 'Are you sure?', :method => :delete

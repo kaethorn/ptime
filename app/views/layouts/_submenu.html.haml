@@ -16,3 +16,12 @@
     = link_to 'New milestone type', new_milestone_path
     |
     = link_to 'Milestone types', milestones_path
+-if controller.controller_name == 'accountings'
+  #sub_nav
+    = link_to 'New position', new_accounting_path
+-if controller.controller_name == 'project_milestones'
+  #sub_nav
+    = link_to 'New milestone', new_project_milestone_path
+-if controller.controller_name == 'plans'
+  #sub_nav
+    = link_to 'New RPL', new_plan_path

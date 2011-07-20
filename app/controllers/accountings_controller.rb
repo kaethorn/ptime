@@ -10,7 +10,7 @@ class AccountingsController < InheritedResources::Base
   end
 
   def new
-    new!{ }
+    new!{ accountings_path }
   end
 
   protected

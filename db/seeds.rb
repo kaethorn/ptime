@@ -46,3 +46,51 @@ milestones.each do |milestone|
   p.name = milestone
   p.save!
 end
+
+
+# Import project_milestones
+projects = Project.all
+projects_count = projects.count
+milestones = Milestones.all
+milestone_count = milestones.count
+(1..10).each do |num|
+  rnd_project = projects[rand(projects_count)]
+  rnd_milestone = projects[rand(milestones_count)]
+  p = ProjectMilestone.new
+  p.project_id = rnd_project.id
+  p.milestone_id = rnd_milestone.id
+  p.description = "milestone description #{num}"
+  p.date => Date.today - rand(20)
+  p.accomplished = [true,false].shuffle.shift
+  p.save!
+end
+
+
+# Import accountings
+(1..10).each do |num|
+  rnd_project = projects[rand(projects_count)]
+  p = Accounting.new
+  p.description = "position description #{num}"
+  p.amount = rand(100000)
+  p.valuta = Date.today - rand(20)
+  p.project_id = rnd_project.id
+  p.sent = [true,false].shuffle.shift
+  p.payed = [true,false].shuffle.shift
+  p.link = "http://link.to.position.#{num}"
+  p.save!
+end
+
+
+# Import rpl/plans
+users = User.all
+users_count = users.count
+(1..10).each do |num|
+  rnd_user = users[rand(users_count)]
+  rnd_project = projects[rand(projects_count)]
+  p = Plan.new
+  p.user_id = rnd_user.id
+  p.project_id = rnd_project.id
+  p.amount = rand(10)
+  p.kw = Date.today - rand(10)
+  p.save!
+end

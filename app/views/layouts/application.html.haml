@@ -15,6 +15,9 @@
         %li= section_link('Entry', :controller => 'entries', :action => 'new')
         %li= section_link('Report', :controller => 'reports', :action => 'show')
         %li= section_link('Projects', :controller => 'projects', :action => 'index')
+        %li= section_link('Accounting', :controller => 'accountings', :action => 'index')
+        %li= section_link('Milestones', :controller => 'project_milestones', :action => 'index')
+        %li= section_link('RPL', :controller => 'plans', :action => 'index')
         - if current_user.try(:admin?)
           %li= section_link('Admin', :controller => 'admin', :action => 'index')
       

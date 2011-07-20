@@ -1,24 +1,19 @@
-%h1 Listing plans
+%h1 Listing RPLs
 
-%table
+%table#gradient-table
   %tr
     %th User
     %th Project
     %th Amount
     %th Kw
-    %th
-    %th
-    %th
+    %th Edit
+    %th Delete
 
   - @plans.each do |plan|
     %tr
-      %td= plan.user.user_name
-      %td= plan.project.shortname
+      %td= link_to plan.user.username, edit_user_path(plan.user)
+      %td= link_to plan.project.shortname, edit_project_path(plan.project)
       %td= plan.amount
       %td= plan.kw
-      %td= link_to 'Show', plan
-      %td= link_to 'Edit', edit_plan_path(plan)
-      %td= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete
-%br
-
-= link_to 'New Plan', new_plan_path
+      %td= link_to (image_tag 'edit.png'), edit_plan_path(plan)
+      %td= link_to (image_tag 'delete.png'), plan, :confirm => 'Are you sure?', :method => :delete
